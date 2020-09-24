@@ -1,11 +1,11 @@
-import sys
+import sys,os
 
-with open('upgrade_file.in','r',encoding='utf-8') as act:
+with open(os.getcwd()+'/upgrade_file.in','r',encoding='utf-8') as act:
     version_num=act.readline()
     words_dict1=eval(act.readline())
     words_dict2=eval(act.readline())
 
-with open('单词本.txt','r',encoding='utf-8') as chack:
+with open(os.getcwd()+'/单词本.txt','r',encoding='utf-8') as chack:
     version_num_chack=chack.readline()
 if version_num!=version_num_chack:
     print('有新版本，请及时更新\n')
@@ -81,14 +81,14 @@ while True:                 #输入需要查找的单词或释义或要执行的
                         for a in i:
                             words_table.append(a)
                     element_complete=''
-                    with open('单词本.txt','w',encoding='utf-8') as add:
+                    with open(os.getcwd()+'/单词本.txt','w',encoding='utf-8') as add:
                         for i in range(0,len(words_table),2):
                             element_word=words_table[i]
                             element_chinese=words_table[i+1]
                             element_complete+=element_word+': '+element_chinese+'\n'
                         element_complete=element_complete[0:-1]
                         add.write(version_num_chack+element_complete)
-                    with open('upgrade_file.in','w',encoding='utf-8') as add:
+                    with open(os.getcwd()+'/upgrade_file.in','w',encoding='utf-8') as add:
                         add.write(version_num+str(words_dict1)+'\n'+str(words_dict2))
                 else :
                     pass

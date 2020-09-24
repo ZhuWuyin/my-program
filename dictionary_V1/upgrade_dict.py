@@ -1,4 +1,6 @@
-with open('单词本.txt','r',encoding='utf-8') as act:
+import os
+
+with open(os.getcwd()+'/单词本.txt','r',encoding='utf-8') as act:
     version_num=act.readline()
     words_table=act.readlines()
 
@@ -54,5 +56,5 @@ for i in words_table:
     except KeyError:
         words_dict2[word[0]]=chinese_element
 
-with open('upgrade_file.in','w',encoding='utf-8') as fin:
+with open(os.getcwd()+'/upgrade_file.in','w',encoding='utf-8') as fin:
     fin.write(version_num+str(words_dict1)+'\n'+str(words_dict2))
