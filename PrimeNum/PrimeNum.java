@@ -10,15 +10,4 @@ public class PrimeNum{
         }
         return true;
     }
-    public static void main(String[] args){
-        Scanner num=new Scanner(System.in);
-        BigInteger i=new BigInteger(num.next());
-        num.close();
-        if (primeNum(i)){
-            System.out.println("it is");
-        }
-        else {
-            System.out.println("it isn't");
-        }
-    }
 }
