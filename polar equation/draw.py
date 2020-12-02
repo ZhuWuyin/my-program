@@ -30,5 +30,3 @@ while True:
             turtle.goto(-r*cos(x), -r*sin(x))
         except ZeroDivisionError:
             pass
-
-turtle.done()
