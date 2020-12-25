@@ -1,4 +1,7 @@
 import turtle as t
+from math import sin, cos, tan
+
+#三角函数以弧度制度量(trigonometric function measured in radians)
 
 def plus_point(b):
     global point
