@@ -1,5 +1,4 @@
 import java.math.BigInteger;
-import java.util.Scanner;
 
 public class PrimeNum{
     static boolean primeNum(BigInteger num){
