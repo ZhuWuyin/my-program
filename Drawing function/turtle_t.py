@@ -1,5 +1,5 @@
 import turtle as t
-from math import sin, cos, tan
+from math import sin, cos
 
 #三角函数以弧度制度量(trigonometric function measured in radians)
 
