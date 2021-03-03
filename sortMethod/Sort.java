@@ -66,7 +66,6 @@ public class Sort{
                 a.get(index2).addAll(a.get(index1));
                 a.set(index2, insertSort(a.get(index2)));
                 a.remove(index1);
-                System.out.println(a);
             }
         }
         return a.get(0);
