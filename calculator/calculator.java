@@ -61,7 +61,7 @@ public class calculator {
                     BigDecimal[] interm=toBigDecimal(a, index);
                     BigDecimal val1=interm[0];
                     BigDecimal val2=interm[1];
-                    result=val1.divide(val2);
+                    result=val1.divide(val2, 10, BigDecimal.ROUND_HALF_UP);
                 }
             }
             else if(a.indexOf("+")!=a.positiveLength+1 || a.indexOf("-")!=a.positiveLength+1){
