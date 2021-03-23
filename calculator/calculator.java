@@ -45,7 +45,9 @@ public class calculator {
                 BigDecimal val1=BigDecimal.valueOf(Double.valueOf((String)a.getElement(index-1)));
                 int val2=Integer.valueOf((String)a.getElement(index+1));
                 if (val2<0){
-                    result=new BigDecimal("1").divide(val1.pow(Math.abs(val2)), 100, BigDecimal.ROUND_HALF_UP);
+                    BigDecimal interm=val1.pow(-val2);
+                    System.out.println(interm.toString()+" "+val2);
+                    result=new BigDecimal("1").divide(interm, interm.toString().length()+val2+1, BigDecimal.ROUND_HALF_UP);
                 }
                 else {
                     result=val1.pow(val2);
