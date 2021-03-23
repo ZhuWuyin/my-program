@@ -44,7 +44,12 @@ public class calculator {
                 index=a.indexOf("^");
                 BigDecimal val1=BigDecimal.valueOf(Double.valueOf((String)a.getElement(index-1)));
                 int val2=Integer.valueOf((String)a.getElement(index+1));
-                result=val1.pow(val2);
+                if (val2<0){
+                    result=new BigDecimal("1").divide(val1.pow(Math.abs(val2)), 100, BigDecimal.ROUND_HALF_UP);
+                }
+                else {
+                    result=val1.pow(val2);
+                }
             }
             else if(a.indexOf("*")!=a.positiveLength+1 || a.indexOf("/")!=a.positiveLength+1){
                 index1=a.indexOf("*");
