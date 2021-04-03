@@ -46,7 +46,7 @@ public class calculator {
                 int val2=Integer.valueOf((String)a.getElement(index+1));
                 if (val2<0){
                     BigDecimal interm=val1.pow(-val2);
-                    result=new BigDecimal("1").divide(interm, interm.toString().length()+val2+1, BigDecimal.ROUND_HALF_UP);
+                    result=new BigDecimal("1").divide(interm, interm.toString().length()+val2+10, BigDecimal.ROUND_HALF_UP);
                 }
                 else {
                     result=val1.pow(val2);
@@ -67,7 +67,7 @@ public class calculator {
                     BigDecimal[] interm=toBigDecimal(a, index);
                     BigDecimal val1=interm[0];
                     BigDecimal val2=interm[1];
-                    result=val1.divide(val2, val2.toString().length(), BigDecimal.ROUND_HALF_UP);
+                    result=val1.divide(val2, val2.toString().length()*10, BigDecimal.ROUND_HALF_UP);
                 }
             }
             else if(a.indexOf("+")!=a.positiveLength+1 || a.indexOf("-")!=a.positiveLength+1){
