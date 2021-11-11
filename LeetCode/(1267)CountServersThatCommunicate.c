@@ -1,23 +1,13 @@
 #include <stdio.h>
 
 bool find(int **table, int row, int col, int maxRow, int maxCol){
-    for (int i=0; i<col; i++){
-        if (table[row][i]==1){
+    for (int i=0; i<maxCol; i++){
+        if (table[row][i]==1 && i!=col){
             return true;
         }
     }
-    for (int i=col+1; i<maxCol; i++){
-        if (table[row][i]==1){
-            return true;
-        }
-    }
-    for (int i=0; i<row; i++){
-        if (table[i][col]==1){
-            return true;
-        }
-    }
-    for (int i=row+1; i<maxRow; i++){
-        if (table[i][col]==1){
+    for (int i=0; i<maxRow; i++){
+        if (table[i][col]==1 && i!=row){
             return true;
         }
     }
