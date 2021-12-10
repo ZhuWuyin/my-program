@@ -300,7 +300,7 @@ void main()
     }
 
     printf("If you want play again, please input reset, else the program will exit\n");
-    char str1[20];
+    char str1[1];
     scanf("%s", str1);
     if (stringCompare(str1, "reset")){
         for (int i=0; i<9; i++){
