@@ -215,7 +215,7 @@ void bot(){
             }
         }
     }
-    srand((unsigned) time(NULL));
+    srand((unsigned) time(NULL)%10);
     int index=rand()%sum;
     table[*(positionRow+index)][*(positionCol+index)]=4;
     free(positionRow);
