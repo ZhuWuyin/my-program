@@ -256,7 +256,7 @@ void main()
 {
 
     start:
-    printf("Wellcome to Tic-Tac-Toe\n\n");
+    printf("\nWellcome to Tic-Tac-Toe\n\n");
     printf("Please type the coordination and press \"Enter\" to put your chess piece.\n");
     printf("Please type x and y and both are start at 1. Input example: 1,1\n");
     printf("If the program appears some errors, press \"Ctrl+C\" to exit, or click the cross in the upper right of this window\n\n");
@@ -270,7 +270,7 @@ void main()
             y--; x--;
         } while (x<0 || x>2 || y<0 || y>2 || table[y][x]!=0);
         table[y][x]=1;
-        printf("Player:\n");
+        printf("\n\nPlayer:\n");
         tablePrinter();
 
         int isWin=winner(), isTie=tie();
