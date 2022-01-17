@@ -83,6 +83,62 @@ void bot(){
         for (int j=0; j<3; j++){
             sum+=table[i][j];
         }
+        if (sum==8){
+            for (int j=0; j<3; j++){
+                if (!table[i][j]){
+                    table[i][j]=4;
+                    return;
+                }
+            }
+        }
+    }
+
+    for (int i=0; i<3; i++){
+        sum=0;
+        for (int j=0; j<3; j++){
+            sum+=table[j][i];
+        }
+        if (sum==8){
+            for (int j=0; j<3; j++){
+                if (!table[j][i]){
+                    table[j][i]=4;
+                    return;
+                }
+            }
+        }
+    }
+
+    sum=0;
+    for (int i=0; i<3; i++){
+        sum+=table[i][i];
+    }
+    if (sum==8){
+        for (int i=0; i<3; i++){
+            if (table[i][i]==0){
+                table[i][i]=4;
+                return;
+            }
+        }
+    }
+
+    sum=0;
+    for (int i=0; i<3; i++){
+        sum+=table[2-i][i];
+    }
+    if (sum==8){
+        for (int i=0; i<3; i++){
+            if (table[2-i][i]==0){
+                table[2-i][i]=4;
+                return;
+            }
+        }
+    }
+
+    for (int i=0; i<3; i++){
+        sum=0;
+        for (int j=0; j<3; j++){
+            sum+=table[i][j];
+        }
         if (sum==2){
             for (int j=0; j<3; j++){
                 if (!table[i][j]){
@@ -137,62 +193,6 @@ void bot(){
     if (table[1][1]==0){
         table[1][1]=4;
         return;
-    }
-
-    for (int i=0; i<3; i++){
-        sum=0;
-        for (int j=0; j<3; j++){
-            sum+=table[i][j];
-        }
-        if (sum==8){
-            for (int j=0; j<3; j++){
-                if (!table[i][j]){
-                    table[i][j]=4;
-                    return;
-                }
-            }
-        }
-    }
-
-    for (int i=0; i<3; i++){
-        sum=0;
-        for (int j=0; j<3; j++){
-            sum+=table[j][i];
-        }
-        if (sum==8){
-            for (int j=0; j<3; j++){
-                if (!table[j][i]){
-                    table[j][i]=4;
-                    return;
-                }
-            }
-        }
-    }
-
-    sum=0;
-    for (int i=0; i<3; i++){
-        sum+=table[i][i];
-    }
-    if (sum==8){
-        for (int i=0; i<3; i++){
-            if (table[i][i]==0){
-                table[i][i]=4;
-                return;
-            }
-        }
-    }
-
-    sum=0;
-    for (int i=0; i<3; i++){
-        sum+=table[2-i][i];
-    }
-    if (sum==8){
-        for (int i=0; i<3; i++){
-            if (table[2-i][i]==0){
-                table[2-i][i]=4;
-                return;
-            }
-        }
     }
 
     sum=0;
