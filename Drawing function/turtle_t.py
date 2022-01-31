@@ -24,14 +24,16 @@ while True:
     y_axis=float(input('y轴放大倍数 (magnification of y axis)：'))
     t.color('red')
     equation=input('y=')
-    equation_list=[a for a in equation]
     t.up()
     x=-101
-    y=eval(''.join(equation_list))
-    t.goto(x*x_axis,y*y_axis)
+    y=eval(equation.replace("x", "("+str(x)+")"))
+    if type(y)!=complex:
+        t.goto(x*x_axis,y*y_axis)
     t.down()
     for i in point_list:
         x=i
-        y=eval(''.join(equation_list))
-        t.goto(x*x_axis,y*y_axis)
+        y=eval(equation.replace("x", "("+str(x)+")"))
+        if type(y)!=complex:
+            t.goto(x*x_axis,y*y_axis)
+    t.up()
 t.done()
