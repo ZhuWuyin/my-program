@@ -82,26 +82,42 @@ def getPixel(xShift, yShift, pixelWidth, pixelHeight, img):
 
     return pixel
 
-imgPath=input("Image path: ").replace("\\", "/")
-outputName=input("Output image's name: ")+imgPath[imgPath.index("."):]
-im1=cv2.imread(imgPath).tolist()
-
-indexWidth=int(input("Width index: "))
-indexHeight=int(input("Height index: "))
-tolerance=int(input("Tolerance: "))
-
 while True:
-    model=input("Process model(normal/sharp/quick): ").lower()
-    if model=="normal" or model=="sharp" or model=="quick":
+
+    imgPath=input("Image path (Drag the image here or type the path): ").replace("\\", "/")
+    if imgPath[0]=='"':
+        imgPath=imgPath[1:-1]
+
+    outputName=input("Output image's name: ")+imgPath[imgPath.index("."):]
+
+    outputPath=input("Target output path (Drag the document here or type the path): ").replace("\\", "/")
+    if outputPath[0]=='"':
+        outputPath=outputPath[1:-1]
+    if outputPath[-1]!="/":
+        outputPath+="/"
+
+    im1=cv2.imdecode(np.fromfile(imgPath, dtype=np.uint8), -1).tolist()
+
+    indexWidth=int(input("Width index: "))
+    indexHeight=int(input("Height index: "))
+    tolerance=int(input("Tolerance: "))
+
+    while True:
+        model=input("Process model(normal/sharp/quick): ").lower()
+        if model=="normal" or model=="sharp" or model=="quick":
+            break
+        print("No such model")
+
+    image=[]
+    for i in range(0, len(im1), indexHeight):
+        line=[]
+        for j in range(0, len(im1[0]), indexWidth):
+            line.append(compressPixel(getPixel(j, i, indexWidth, indexHeight, im1), tolerance, model))
+
+        image.append(line)
+
+    cv2.imencode(outputName, np.array(image, dtype=np.uint8))[1].tofile(outputPath+outputName)
+    
+    deterim=input("Image compressed successfully, do you want to continue? (Y/N)\n").lower()
+    if deterim=='n':
         break
-    print("No such model")
-
-image=[]
-for i in range(0, len(im1), indexHeight):
-    line=[]
-    for j in range(0, len(im1[0]), indexWidth):
-        line.append(compressPixel(getPixel(j, i, indexWidth, indexHeight, im1), tolerance, model))
-
-    image.append(line)
-
-cv2.imwrite(outputName, np.array(image, dtype="uint8"))
