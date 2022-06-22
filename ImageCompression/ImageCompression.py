@@ -54,7 +54,7 @@ def compressPixel(pixel, tolerance, model):
         if len(list1)==len(set([str(i) for i in list1])):
             return normalModel(list1, tolerance)
         else :
-            return eval(list(Counter([str(i) for i in list1]))[0])
+            return eval(Counter([str(i) for i in list1]).most_common()[0][0])
     elif model=="normal" :
         return normalModel(list1, tolerance)
     else :
