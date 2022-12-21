@@ -23,10 +23,10 @@ def r2():
                 list2[index]=0
                 break
             else :
-                list2[index]+=1
+                list2[index]+=100
 
         for i in range(index+1, len(list2)):
-            list2[i]+=1
+            list2[i]+=100
         
         counter.append(list1[index])
 
