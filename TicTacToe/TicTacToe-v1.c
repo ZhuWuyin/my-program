@@ -29,12 +29,6 @@ void printBoard(){
     }
 }
 
-void setBoard(char symbol, char location[2]){
-    char row=location[0];
-    char col=location[1];
-    board[row][col]=symbol;
-}
-
 char checkFull(){
     char flag=INITIAL;
     for (char row=0; row<MAXROW; row++){
