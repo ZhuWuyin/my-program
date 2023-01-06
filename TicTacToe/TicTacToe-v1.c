@@ -6,11 +6,10 @@
 #define MAXCOL 3
 #define BOT 'X'
 #define PLAYER 'O'
-#define BOARD board[MAXROW][MAXCOL]
 #define INITIAL '-'
 #define WIN 1
 
-char BOARD;
+char board[MAXROW][MAXCOL];
 
 void initializeBoard(){
     for (char row=0; row<MAXROW; row++){
