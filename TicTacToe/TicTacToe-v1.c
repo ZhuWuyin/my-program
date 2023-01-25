@@ -277,7 +277,7 @@ void main(){
         printf("Player (\"O\"): ");
 
         input:
-        scanf("%d%*c%d%*s", &row, &col);
+        scanf("%d%*c%d", &row, &col);
         row--; col--;
         if (row>2 || row<0 || col>2 || col<0 || board[row][col]!=INITIAL){
             printf("Error Input, try again: ");
