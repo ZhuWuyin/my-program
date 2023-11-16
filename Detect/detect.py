@@ -1,4 +1,4 @@
-import cv2, pyautogui, time, keyboard
+import cv2, pyautogui, time, keyboard, datetime
 
 def getVelocity():
     start=pyautogui.position()
@@ -32,6 +32,10 @@ out=cv2.VideoWriter("video/video{0}.mp4".format(file_index), fourcc, 20.0, (640,
 
 excluded_keys=['1','2']
 
+font = cv2.FONT_HERSHEY_SIMPLEX
+font_size = 0.5
+font_color = (255, 255, 255)
+
 print("ok")
 while True:
     Vcurr=getVelocity()
@@ -50,6 +54,8 @@ while True:
         if not ret:
             continue
         frame=cv2.flip(frame, 1)
+        text = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        cv2.putText(frame, text, (10, 20), font, font_size, font_color, 1, cv2.LINE_AA)
         out.write(frame)
     elif add:
         file_index+=1
