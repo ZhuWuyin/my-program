@@ -7,7 +7,7 @@ from functools import partial
 
 
 def getFileInfo(s):
-    pat = r"(.+?)(\.png|\.jpg|\.jpeg|\.raw)$"
+    pat = r"(.+?)(\.png|\.jpg|\.jpeg)$"
     m = re.search(pat, s, re.IGNORECASE)
     if m is None:
         return m
