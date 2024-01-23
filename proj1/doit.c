@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
         size_t end_i = get_command(buff, command, sizeof(command));
 
         if (end_i == 0){
-            struct task *end_task = run_task(buff, start_task);
+            struct task *end_task = run_task(buff, curr_task);
             if (end_task != NULL){
                 curr_task->next = end_task;
                 curr_task = end_task;
